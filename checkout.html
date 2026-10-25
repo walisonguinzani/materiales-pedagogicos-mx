@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Finaliza tu pedido · Educación de la Esperanza</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#2E3A1D">
+<meta name="meta-pixel" content="">
+<link rel="preload" href="assets/fonts/Lora.woff" as="font" type="font/woff" crossorigin>
+<link rel="stylesheet" href="assets/fonts.css">
+<link rel="stylesheet" href="assets/checkout.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="i-brote" viewBox="0 0 32 38"><path d="M16 36V17" stroke="#EADCBD" stroke-width="2.2" stroke-linecap="round" fill="none"/><path d="M16 19C16 11 10 7 2 8c0 8 6 12 14 11z" fill="#9DB074"/><path d="M16 17c0-7 5-11 13-11 0 7-5 12-13 11z" fill="#B3C48B"/><ellipse cx="16" cy="36" rx="7" ry="1.8" fill="#C3A063"/></symbol></svg>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M4.5 12.5l5 5L19.5 7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-escudo" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8.5 12l2.5 2.5 4.5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-candado" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 10.5V8a4 4 0 018 0v2.5" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+  <symbol id="i-flecha" viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<header class="barra-top">
+  <div class="wrap">
+    <a class="marca" href="index.html"><svg aria-hidden="true"><use href="#i-brote"/></svg>Educación de la Esperanza</a>
+    <span class="seguro"><svg><use href="#i-candado"/></svg>Pago seguro</span>
+  </div>
+</header>
+
+<main class="wrap grid">
+  <div>
+    <form id="form" novalidate>
+      <section class="panel" aria-labelledby="p1">
+        <div class="paso"><span class="paso-n">1</span><h2 id="p1">Tus datos</h2></div>
+        <div class="kyc-fila">
+          <div class="campo">
+            <label for="firstName">Nombre(s)</label>
+            <input id="firstName" name="firstName" autocomplete="given-name" required placeholder="Ana Lucía">
+          </div>
+          <div class="campo">
+            <label for="lastName">Apellidos</label>
+            <input id="lastName" name="lastName" autocomplete="family-name" required placeholder="López García">
+          </div>
+        </div>
+        <span class="err" id="err-customerName" role="alert" style="display:block;margin:-8px 0 12px"></span>
+        <div class="campo">
+          <label for="customerEmail">Correo electrónico</label>
+          <input id="customerEmail" name="customerEmail" type="email" inputmode="email" autocomplete="email" required placeholder="tucorreo@gmail.com">
+          <span class="ayuda">Para enviarte la confirmación de tu pedido.</span>
+          <span class="err" id="err-customerEmail" role="alert"></span>
+        </div>
+        <div class="campo">
+          <label for="customerPhone">WhatsApp <span style="font-weight:500;color:var(--texto-2)">(opcional)</span></label>
+          <input id="customerPhone" name="customerPhone" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="10 dígitos" maxlength="16">
+          <span class="ayuda">Para avisarte de tu pedido y ayudarte si lo necesitas.</span>
+          <span class="err" id="err-customerPhone" role="alert"></span>
+        </div>
+      </section>
+
+      <section class="panel" aria-labelledby="p3">
+        <div class="paso"><span class="paso-n">2</span><h2 id="p3">Forma de pago</h2></div>
+        <div id="metodos" class="cargando" aria-busy="true"><span></span><span></span></div>
+        <span class="err" id="err-paymentMethod" role="alert" style="display:block;margin-top:8px"></span>
+        <div id="kyc" class="kyc oculto">
+          <p class="ayuda" style="margin-bottom:14px">Para pagar por SPEI, tu banco pide estos datos del titular de la cuenta.</p>
+          <div class="campo">
+            <label for="documentNumber">RFC con homoclave</label>
+            <input id="documentNumber" name="documentNumber" autocomplete="off" autocapitalize="characters" maxlength="13" placeholder="13 caracteres" spellcheck="false">
+            <span class="err" id="err-documentNumber" role="alert"></span>
+          </div>
+          <div class="kyc-fila">
+            <div class="campo">
+              <label for="birthDate">Fecha de nacimiento</label>
+              <input id="birthDate" name="birthDate" type="date" autocomplete="bday" min="1915-01-01">
+              <span class="err" id="err-birthDate" role="alert"></span>
+            </div>
+            <div class="campo">
+              <label for="birthCountry">País de nacimiento</label>
+              <select id="birthCountry" name="birthCountry" autocomplete="country">
+                <option value="MX" selected>México</option><option value="US">Estados Unidos</option><option value="GT">Guatemala</option>
+                <option value="SV">El Salvador</option><option value="HN">Honduras</option><option value="CO">Colombia</option>
+                <option value="VE">Venezuela</option><option value="CU">Cuba</option><option value="AR">Argentina</option>
+                <option value="ES">España</option><option value="BR">Brasil</option>
+              </select>
+              <span class="err" id="err-birthCountry" role="alert"></span>
+            </div>
+          </div>
+        </div>
+        <div id="errorGeneral" class="aviso error oculto" role="alert" style="margin-top:16px"></div>
+        <p style="margin-top:20px"><button class="btn" id="enviar" type="submit" disabled>Generar mi pago <svg><use href="#i-flecha"/></svg></button></p>
+        <p class="legal">Al continuar aceptas los <a href="terminos.html">Términos y Condiciones</a> y el <a href="privacidad.html">Aviso de Privacidad</a>. Producto digital: el acceso es al Grupo VIP de WhatsApp.</p>
+      </section>
+    </form>
+
+    <section class="panel oculto" id="pago" aria-live="polite"></section>
+  </div>
+
+  <aside class="panel resumen" aria-labelledby="t-resumen">
+    <h2 id="t-resumen">Tu pedido</h2>
+    <div class="prod"><img src="assets/img/portada-kit.webp" alt="" width="66" height="93"><div><b>Kit Semillas de Esperanza completo</b><small>8 diseños · 32 mensajes · 2 regalos</small></div></div>
+    <ul class="lineas" id="lineas"></ul>
+    <div class="total"><span>Total</span><b id="total">$150 MXN</b></div>
+    <p class="ayuda" style="margin-top:4px">Pago único por SPEI</p>
+    <ul class="incluye">
+      <li><svg><use href="#i-check"/></svg>8 diseños de fichas que se abren</li>
+      <li><svg><use href="#i-check"/></svg>32 mensajes bíblicos (NTV)</li>
+      <li><svg><use href="#i-check"/></svg>Regalo: 12 Tarjetas de Oración</li>
+      <li><svg><use href="#i-check"/></svg>Regalo: Guía Cómo compartir sin incomodar</li>
+      <li><svg><use href="#i-check"/></svg>Acceso al Grupo VIP de WhatsApp</li>
+    </ul>
+  </aside>
+</main>
+<footer class="pie-legal">
+  <nav aria-label="Legal"><a href="terminos.html">Términos y Condiciones</a><a href="privacidad.html">Aviso de Privacidad</a><a href="mailto:goatgateag@gmail.com">goatgateag@gmail.com</a></nav>
+  <p>© 2026 Educación de la Esperanza. Este sitio no forma parte de Facebook ni de Meta Platforms, Inc. y no está respaldado por ellos de ninguna manera. Meta no es responsable del contenido, los productos ni los pagos de este sitio.</p>
+</footer>
+
+<script type="module">
+import { fmt, renderPago, vigilarEstado } from './assets/pago.js';
+import { metaIds, trackNav, trackOrder } from './assets/meta.js';
+trackNav('InitiateCheckout');
+
+const $ = (id) => document.getElementById(id);
+const form = $('form'), btn = $('enviar');
+let oferta = { baseAmount: 15000, bumps: [], product: { name: 'Kit Semillas de Esperanza completo', amount: 15000 } };
+let metodos = [];
+
+// ---------- Estado local (solo conveniencia; el servidor decide todo) ----------
+const ss = { get(k) { try { return JSON.parse(sessionStorage.getItem(k)); } catch { return null; } }, set(k, v) { try { sessionStorage.setItem(k, JSON.stringify(v)); } catch {} } };
+const ls = { get(k) { try { return JSON.parse(localStorage.getItem(k)); } catch { return null; } }, set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} } };
+
+const utm = Object.fromEntries([...new URLSearchParams(location.search)].filter(([k]) => /^(utm_[a-z]+|fbclid|sck|src)$/.test(k)));
+if (Object.keys(utm).length) ss.set('utm', utm);
+
+function elegidos() { return []; }
+
+function pintarResumen() {
+  const sel = elegidos();
+  const lineas = [[oferta.product.name, oferta.product.amount, false], ...oferta.bumps.filter((b) => sel.includes(b.id)).map((b) => [b.name, b.amount, true])];
+  $('lineas').innerHTML = lineas.map(([n, a, b]) => `<li class="${b ? 'bump-linea' : ''}"><span>${n}</span><span>${fmt(a)}</span></li>`).join('');
+  const total = lineas.reduce((s, l) => s + l[1], 0);
+  $('total').textContent = fmt(total);
+  btn.innerHTML = `Generar mi pago · ${fmt(total)} <svg><use href="#i-flecha"/></svg>`;
+}
+
+function pintarMetodos() {
+  const box = $('metodos');
+  box.classList.remove('cargando'); box.removeAttribute('aria-busy');
+  if (!metodos.length) {
+    box.innerHTML = '<div class="aviso error">No hay formas de pago disponibles en este momento. Intenta de nuevo en unos minutos.</div>';
+    return;
+  }
+  const orden = (m) => (m.category === 'voucher' ? 1 : 0); // digitales primero, efectivo después
+  const desc = { spei: 'Transferencia desde tu banco', oxxo: 'Paga en efectivo en cualquier OXXO' };
+  box.className = 'metodos';
+  box.setAttribute('role', 'radiogroup');
+  box.setAttribute('aria-label', 'Forma de pago');
+  box.innerHTML = [...metodos].sort((a, b) => orden(a) - orden(b)).map((m, i) => `<label class="metodo"><input type="radio" name="paymentMethod" value="${m.code}" ${i === 0 ? 'checked' : ''}><span class="punto"></span>
+    ${m.iconUrl ? `<img src="${m.iconUrl}" alt="" onerror="this.remove()">` : ''}<span><b>${m.displayName}</b><small>${desc[m.code] || ''}</small></span></label>`).join('');
+  btn.disabled = false;
+  const pideKyc = (code) => (metodos.find((m) => m.code === code)?.requiredPayloadFields || []).some((f) => /documentNumber|birthDate|rfc/i.test(f));
+  const sync = () => { const c = form.querySelector('input[name="paymentMethod"]:checked')?.value; $('kyc').classList.toggle('oculto', !pideKyc(c)); form.dataset.kyc = pideKyc(c) ? '1' : ''; };
+  box.addEventListener('change', sync); sync();
+}
+
+async function cargarOferta() {
+  try {
+    const r = await fetch('/api/payment-methods', { cache: 'no-store' });
+    if (!r.ok) throw new Error();
+    const d = await r.json();
+    oferta = d; metodos = d.methods || [];
+  } catch {
+    oferta.bumps = [];
+    metodos = [];
+    $('metodos').classList.remove('cargando');
+    $('metodos').innerHTML = '<div class="aviso error">No pudimos cargar las formas de pago. Revisa tu conexión y recarga la página.</div>';
+    pintarResumen();
+    return;
+  }
+  pintarResumen(); pintarMetodos();
+}
+
+// ---------- Errores en campos ----------
+function limpiarErrores() {
+  ['customerName', 'customerEmail', 'customerPhone', 'paymentMethod', 'documentNumber', 'birthDate', 'birthCountry'].forEach((f) => { $('err-' + f).textContent = ''; $(f)?.removeAttribute('aria-invalid'); });
+  ['firstName', 'lastName'].forEach((f) => $(f).removeAttribute('aria-invalid'));
+  $('errorGeneral').classList.add('oculto');
+}
+function errorCampo(f, msg) {
+  if (f === 'firstName' || f === 'lastName') { $('err-customerName').textContent = msg; const i = $(f); i.setAttribute('aria-invalid', 'true'); i.focus(); return; }
+  if (f === 'customerName') { $('err-customerName').textContent = msg; ['firstName', 'lastName'].forEach((x) => $(x).setAttribute('aria-invalid', 'true')); $('firstName').focus(); return; }
+  $('err-' + f).textContent = msg;
+  const inp = $(f); if (inp) { inp.setAttribute('aria-invalid', 'true'); inp.focus(); }
+}
+function errorGeneral(msg) { const e = $('errorGeneral'); e.textContent = msg; e.classList.remove('oculto'); }
+
+function validarLocal(d) {
+  const partes = d.customerName.split(' ').filter(Boolean);
+  if (partes.length < 2) return ['customerName', 'Escribe tu nombre y al menos un apellido.'];
+  if (!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(d.customerEmail)) return ['customerEmail', 'Revisa tu correo: parece incompleto.'];
+  if (d.customerPhone && d.customerPhone.replace(/\D/g, '').length < 10) return ['customerPhone', 'Revisa tu WhatsApp: escribe los 10 dígitos.'];
+  if (!d.paymentMethod) return ['paymentMethod', 'Elige una forma de pago.'];
+  if (form.dataset.kyc) {
+    if (!/^[A-ZÑ&]{3,4}\d{6}[A-Z\d]{3}$/.test(d.documentNumber)) return ['documentNumber', 'Revisa tu RFC: son 13 caracteres, por ejemplo GOMA900115AB1.'];
+    if (!d.birthDate) return ['birthDate', 'Escribe tu fecha de nacimiento.'];
+  }
+  return null;
+}
+
+// ---------- Envío con idempotencia ----------
+// Mismo pedido => mismo requestId (el servidor reutiliza la misma Idempotency-Key).
+// Pedido distinto o error definitivo => requestId nuevo.
+function requestIdPara(d) {
+  const huella = JSON.stringify([d.customerName, d.customerEmail, d.customerPhone || '', d.paymentMethod, d.bumps, d.documentNumber || '', d.birthDate || '', d.birthCountry || '']);
+  const prev = ss.get('intento');
+  if (prev && prev.huella === huella && !prev.cerrado) return prev.id;
+  const id = crypto.randomUUID();
+  ss.set('intento', { id, huella });
+  return id;
+}
+function cerrarIntento() { const p = ss.get('intento'); if (p) ss.set('intento', { ...p, cerrado: true }); }
+
+async function enviar(datos, intento = 1) {
+  const r = await fetch('/api/checkout', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(datos) });
+  const body = await r.json().catch(() => ({}));
+  if (r.ok) return body;
+  if ((r.status === 503 || body.retry) && intento < 4) {
+    btn.textContent = 'Conectando de nuevo…';
+    await new Promise((res) => setTimeout(res, 1500 * intento));
+    return enviar(datos, intento + 1);
+  }
+  const err = new Error(body.error || 'No pudimos generar tu pago. Intenta de nuevo.');
+  err.field = body.field; err.newRequest = body.newRequest;
+  throw err;
+}
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  limpiarErrores();
+  const d = {
+    firstName: $('firstName').value.replace(/\s+/g, ' ').trim(),
+    lastName: $('lastName').value.replace(/\s+/g, ' ').trim(),
+    customerEmail: $('customerEmail').value.trim(),
+    paymentMethod: form.querySelector('input[name="paymentMethod"]:checked')?.value || '',
+    bumps: elegidos().sort(),
+    customerPhone: $('customerPhone').value.trim(),
+  };
+  if (form.dataset.kyc) {
+    d.documentNumber = $('documentNumber').value.toUpperCase().replace(/[\s-]/g, '');
+    d.birthDate = $('birthDate').value;
+    d.birthCountry = $('birthCountry').value;
+  }
+  d.customerName = `${d.firstName} ${d.lastName}`.trim();
+  const fallo = !d.firstName ? ['firstName', 'Escribe tu nombre.'] : !d.lastName ? ['lastName', 'Escribe tus apellidos.'] : validarLocal(d);
+  if (fallo) return errorCampo(...fallo);
+
+  btn.disabled = true;
+  const textoBtn = btn.innerHTML;
+  btn.textContent = 'Generando tu pago…';
+  try {
+    const pedido = await enviar({ ...d, requestId: requestIdPara(d), utm: ss.get('utm') || {}, ...metaIds() });
+    trackOrder('AddPaymentInfo', pedido.referenceId, pedido.amount / 100, `api_${pedido.referenceId}`);
+    cerrarIntento();
+    ls.set('ultimoPedido', { ref: pedido.referenceId, t: pedido.accessToken, at: Date.now() });
+    mostrarPago(pedido);
+  } catch (err) {
+    if (err.newRequest) cerrarIntento();
+    if (err.field) errorCampo(err.field, err.message); else errorGeneral(err.message);
+    btn.disabled = false; btn.innerHTML = textoBtn;
+  }
+});
+
+function mostrarPago(pedido) {
+  form.classList.add('oculto');
+  document.body.classList.add('pagando');
+  const box = $('pago');
+  box.classList.remove('oculto');
+  renderPago(box, pedido);
+  if (pedido.status === 'paid') return irAGracias(pedido.referenceId, pedido.accessToken);
+  box.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  vigilarEstado(pedido.referenceId, pedido.accessToken, (s) => {
+    if (s.status === 'paid') irAGracias(pedido.referenceId, pedido.accessToken);
+    else if (s.status === 'confirming') $('estadoTxt').textContent = 'Recibimos tu pago. Estamos confirmándolo…';
+    else if (s.status === 'failed' || s.status === 'canceled') $('estadoTxt').textContent = 'Este pago no se completó. Puedes generar uno nuevo recargando la página.';
+  });
+}
+function irAGracias(ref, t) { location.href = `gracias.html?ref=${encodeURIComponent(ref)}&t=${encodeURIComponent(t)}`; }
+
+// Si el comprador recarga con un pedido reciente pendiente, volver a mostrar sus instrucciones.
+async function retomar() {
+  const u = ls.get('ultimoPedido');
+  if (!u || Date.now() - u.at > 3 * 86400000) return false;
+  try {
+    const r = await fetch(`/api/checkout-status?ref=${encodeURIComponent(u.ref)}&t=${encodeURIComponent(u.t)}`, { cache: 'no-store' });
+    if (!r.ok) return false;
+    const s = await r.json();
+    if (s.status === 'paid') { irAGracias(u.ref, u.t); return true; }
+    if (s.nextAction && !['failed', 'canceled', 'refunded'].includes(s.status)) {
+      mostrarPago(s);
+      const otro = document.createElement('p');
+      otro.innerHTML = '<button type="button" class="btn btn-sec" style="margin-top:16px">Hacer un pedido nuevo</button>';
+      otro.querySelector('button').onclick = () => { try { localStorage.removeItem('ultimoPedido'); } catch {} location.reload(); };
+      $('pago').appendChild(otro);
+      return true;
+    }
+  } catch {}
+  return false;
+}
+
+cargarOferta();
+retomar();
+</script>
+</body>
+</html>

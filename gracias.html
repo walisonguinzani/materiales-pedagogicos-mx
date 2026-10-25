@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tu pedido · Educación de la Esperanza</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#2E3A1D">
+<meta name="meta-pixel" content="">
+<link rel="preload" href="assets/fonts/Lora.woff" as="font" type="font/woff" crossorigin>
+<link rel="stylesheet" href="assets/fonts.css">
+<link rel="stylesheet" href="assets/checkout.css">
+<style>
+.gracias{max-width:640px;margin:0 auto;padding-block:34px 80px}
+.hola{font-family:"Lora",Georgia,serif;font-style:italic;font-weight:500;font-size:40px;color:var(--trazo);line-height:1;margin-bottom:8px}
+.acceso{display:grid;gap:12px;margin-top:22px}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="i-brote" viewBox="0 0 32 38"><path d="M16 36V17" stroke="#EADCBD" stroke-width="2.2" stroke-linecap="round" fill="none"/><path d="M16 19C16 11 10 7 2 8c0 8 6 12 14 11z" fill="#9DB074"/><path d="M16 17c0-7 5-11 13-11 0 7-5 12-13 11z" fill="#B3C48B"/><ellipse cx="16" cy="36" rx="7" ry="1.8" fill="#C3A063"/></symbol></svg>
+<header class="barra-top"><div class="wrap"><a class="marca" href="index.html"><svg aria-hidden="true"><use href="#i-brote"/></svg>Educación de la Esperanza</a><span class="seguro">Tu pedido</span></div></header>
+<main class="wrap gracias">
+  <section class="panel" id="caja" aria-live="polite">
+    <div class="cargando"><span></span><span></span></div>
+  </section>
+</main>
+<footer class="pie-legal">
+  <nav aria-label="Legal"><a href="terminos.html">Términos y Condiciones</a><a href="privacidad.html">Aviso de Privacidad</a><a href="mailto:goatgateag@gmail.com">goatgateag@gmail.com</a></nav>
+  <p>© 2026 Educación de la Esperanza. Este sitio no forma parte de Facebook ni de Meta Platforms, Inc. y no está respaldado por ellos de ninguna manera. Meta no es responsable del contenido, los productos ni los pagos de este sitio.</p>
+</footer>
+<script type="module">
+import { renderPago, vigilarEstado } from './assets/pago.js';
+import { trackOrder } from './assets/meta.js';
+const caja = document.getElementById('caja');
+const q = new URLSearchParams(location.search);
+const ref = q.get('ref'), t = q.get('t');
+const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+
+function pagado(s) {
+  trackOrder('Purchase', s.referenceId, s.amount / 100, `purchase_${s.referenceId}`);
+  const a = s.access || {};
+  caja.innerHTML = `<p class="hola">¡Gracias!</p><h1 style="font-size:32px">Tu pago está confirmado</h1>
+    <p style="margin-top:10px;color:var(--texto-2)">👥 Únete a nuestro <b>Grupo VIP</b> para recibir novedades y devocionales semanales. ¡Que Dios te bendiga!</p>
+    <div class="acceso">
+      ${a.vipUrl ? `<a class="btn" href="${esc(a.vipUrl)}" target="_blank" rel="noopener">Entrar al Grupo VIP de WhatsApp</a>` : '<div class="aviso ok">En unos minutos te enviamos el enlace del grupo.</div>'}
+    </div>
+    <p class="legal" style="margin-top:18px">Pedido ${esc(s.referenceId)}</p>`;
+}
+
+async function iniciar() {
+  if (!ref || !t) { caja.innerHTML = '<div class="aviso error">No encontramos los datos de tu pedido. Revisa el enlace o vuelve a la página de pago.</div>'; return; }
+  let primero = true;
+  vigilarEstado(ref, t, (s) => {
+    if (s.status === 'paid') return pagado(s);
+    if (primero) {
+      primero = false;
+      renderPago(caja, s);
+      const h = document.createElement('p');
+      h.className = 'hola'; h.style.fontSize = '36px'; h.textContent = '¡Ya casi!';
+      caja.prepend(h);
+    }
+    const txt = document.getElementById('estadoTxt');
+    if (txt && s.status === 'confirming') txt.textContent = 'Recibimos tu pago. Estamos confirmándolo…';
+  });
+}
+iniciar();
+</script>
+</body>
+</html>

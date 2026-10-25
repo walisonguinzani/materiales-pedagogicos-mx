@@ -1,0 +1,10 @@
+{
+  "name": "materiales-pedagogicos-mx",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "check": "node --check api/_lib/*.js api/*.js api/webhooks/*.js"
+  }
+}

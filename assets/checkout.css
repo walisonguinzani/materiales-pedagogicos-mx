@@ -154,3 +154,5 @@ p{margin:0}
 .legal a{color:var(--tinta-2)}
 .total b{font-family:var(--body);font-weight:600;font-size:28px;letter-spacing:-.01em}
 .pago-monto{font-family:var(--body);font-weight:600;letter-spacing:-.01em}
+.pie-legal p + p{margin-top:8px}
+.pie .empresa{white-space:normal;overflow-wrap:anywhere}

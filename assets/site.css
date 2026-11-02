@@ -286,3 +286,11 @@ p{margin:0}
 .dep-ini{display:grid;place-items:center;background:var(--salvia);color:var(--hoja);font:600 17px var(--sans);letter-spacing:.04em}
 .dep b{display:block;font-family:var(--serif);font-weight:600;font-size:16.5px;color:var(--tinta);line-height:1.2}
 .dep small{font-size:13.5px;color:var(--texto-2)}
+
+/* Formas de pagamento */
+.pagamentos{list-style:none;margin:10px 0 0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:6px}
+.pagamentos img{width:38px;height:24px;display:block}
+.hero-cta .pagamentos{margin-top:-2px}
+.sec-tinta .pagamentos,.plan .pagamentos{margin-bottom:4px}
+.plan ul.pagamentos,.garantia ul.pagamentos{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin:10px 0 4px;max-width:none}
+.plan .pagamentos li,.garantia .pagamentos li{display:block}

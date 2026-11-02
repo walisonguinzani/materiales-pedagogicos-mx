@@ -16,7 +16,7 @@ A versão anterior para o México (espanhol, checkout SPEI via Zenith) está gua
 Site 100 % estático: não precisa de build nem de variáveis de ambiente.
 
 ## Checkout
-Todos os botões apontam para `https://pay.hotmart.com/M108302966L`. Para trocar de link, substitui esse endereço no `index.html` (procura por `pay.hotmart.com`).
+Todos os botões apontam para `https://pay.hotmart.com/M108302966L?checkoutMode=10`. Para trocar de link, substitui esse endereço no `index.html` (procura por `pay.hotmart.com`).
 
 Os parâmetros da campanha que chegam à página (`utm_*`, `src`, `sck`, `fbclid`, `xcod`) são acrescentados automaticamente ao link da Hotmart, para a venda ficar atribuída ao anúncio.
 

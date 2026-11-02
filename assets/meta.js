@@ -13,7 +13,7 @@ if (ATIVO) {
   window.fbq('track', 'PageView');
 }
 
-const VALOR = { value: 14.90, currency: 'EUR' };
+const VALOR = { value: 16.90, currency: 'EUR' };
 
 /** Evento de navegação no navegador. */
 export function trackNav(name, data = VALOR) {

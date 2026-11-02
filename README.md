@@ -1,6 +1,6 @@
 # Kit Sementes de Esperança · Landing page (Portugal)
 
-Landing page em português de Portugal do **Kit Sementes de Esperança** (cartões interativos de evangelização para imprimir), com venda pela **Hotmart**. Preço: **14,90 €**, pagamento único.
+Landing page em português de Portugal do **Kit Sementes de Esperança** (cartões interativos de evangelização para imprimir), com venda pela **Hotmart**. Preço: **16,90 €**, pagamento único.
 
 A versão anterior para o México (espanhol, checkout SPEI via Zenith) está guardada no branch `mexico`.
 

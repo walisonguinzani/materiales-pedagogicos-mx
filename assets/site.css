@@ -256,3 +256,6 @@ p{margin:0}
 .pie .empresa{color:#B9BEA2}
 
 .precio b{font-variant-numeric:lining-nums}
+.iva{font-size:13px;color:var(--texto-2);margin-top:8px;text-align:center}
+.hero-cta .iva{margin-top:-4px}
+.cierre .iva{margin-top:10px}

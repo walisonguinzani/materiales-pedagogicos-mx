@@ -13,7 +13,7 @@ World: the Kit Semillas de Esperanza's own printed page. Cream sheets with a dou
 - Poppins 400/500/600 (self-hosted, OFL): body, buttons, wide-tracked small caps (month labels, verse references).
 
 ## Signature
-The Girasol card in the hero: two sticker halves cover a folded panel, then swing open (CSS 3D + clip-path) to reveal "Levanta o olhar." and Salmos 121:1-2 (Almeida ARC). Reduced motion shows it open. A button closes/reopens it.
+The Girasol card in the hero: two sticker halves cover a folded panel, then swing open (CSS 3D + clip-path) to reveal "Levanta o olhar." and Salmos 121:1-2 (no version named on the page). Reduced motion shows it open. A button closes/reopens it.
 
 ## Components
 - `.hoja`: cream sheet, 28px radius, double inset gold hairline frame, soft olive shadow.

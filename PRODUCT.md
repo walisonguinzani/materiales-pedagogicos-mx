@@ -12,7 +12,7 @@ Static HTML/CSS/JS plus Vercel serverless functions (`api/`), same architecture 
 
 ## Current version
 
-Portugal (pt-PT): Kit Sementes de Esperança, 16,90 € via Hotmart checkout https://pay.hotmart.com/M108302966L (order bump Acesso Vitalício + Atualizações, downsell on Hotmart). Bible: Almeida Revista e Corrigida (ARC, Sociedade Bíblica de Portugal); the PDFs (originally O Livro) are being updated by the owner. Brand on page: "Kit Sementes de Esperança". Static site, no backend. The Mexico/SPEI version below lives on the `mexico` branch.
+Portugal (pt-PT): Kit Sementes de Esperança, 16,90 € via Hotmart checkout https://pay.hotmart.com/M108302966L (order bump Acesso Vitalício + Atualizações, downsell on Hotmart). Audience: generic Christian (Catholic majority in Portugal, also evangelicals). Page names no Bible version; PDFs (originally O Livro) being updated by the owner. Brand on page: "Kit Sementes de Esperança". Static site, no backend. The Mexico/SPEI version below lives on the `mexico` branch.
 
 ## Users
 

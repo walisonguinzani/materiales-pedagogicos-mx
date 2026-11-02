@@ -10,6 +10,10 @@ web
 
 Static HTML/CSS/JS plus Vercel serverless functions (`api/`), same architecture as the owner's `caligrafia-mexico` site. Delegated: chosen to reuse the working Zenith Payments (SPEI) checkout already built there.
 
+## Current version
+
+Portugal (pt-PT): Kit Sementes de Esperança, 14,90 € via Hotmart checkout https://pay.hotmart.com/M108302966L (order bump Acesso Vitalício + Atualizações, downsell on Hotmart). Bible: O Livro (Biblica). Brand on page: "Kit Sementes de Esperança". Static site, no backend. The Mexico/SPEI version below lives on the `mexico` branch.
+
 ## Users
 
 Christian adults in Mexico (mostly women: Sunday-school and children's-ministry teachers, catechists, small-group leaders, Christian-school teachers, mothers) arriving on their phone from Meta ads. Spanish (Mexico), informal "tú".

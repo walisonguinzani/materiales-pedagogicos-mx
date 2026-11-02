@@ -11,7 +11,7 @@ A versão anterior para o México (espanhol, checkout SPEI via Zenith) está gua
 | `termos.html` · `privacidade.html` | Termos de Utilização · Política de Privacidade (Hotmart como vendedora, isenção da Meta, dados da empresa) |
 | `assets/site.css` · `assets/fonts.css` | Estilos e fontes (Lora e Poppins, OFL, alojadas no site) |
 | `assets/meta.js` | Píxel da Meta (opcional) e passagem dos UTMs para o checkout |
-| `assets/img/` | Ilustrações, capas em português e selo do Acesso Vitalício |
+| `assets/img/` | Ilustrações e capas em português |
 
 Site 100 % estático: não precisa de build nem de variáveis de ambiente.
 
@@ -20,7 +20,7 @@ Todos os botões apontam para `https://pay.hotmart.com/M108302966L`. Para trocar
 
 Os parâmetros da campanha que chegam à página (`utm_*`, `src`, `sck`, `fbclid`, `xcod`) são acrescentados automaticamente ao link da Hotmart, para a venda ficar atribuída ao anúncio.
 
-O order bump (Acesso Vitalício + Atualizações) e o downsell são configurados na Hotmart; a página só menciona o order bump como opcional.
+O order bump (Acesso Vitalício + Atualizações) e o downsell são configurados só na Hotmart; a página não os menciona.
 
 ## Píxel da Meta (opcional)
 Desligado por defeito. Para ligar, coloca o ID em `<meta name="meta-pixel" content="O_TEU_ID">` no `index.html`. A página envia `PageView`, `ViewContent` e `InitiateCheckout` (no clique). A compra (`Purchase`) é medida pela Hotmart: configura o mesmo píxel em Hotmart → Ferramentas → Pixel de rastreamento.

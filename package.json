@@ -1,0 +1,9 @@
+{
+  "name": "kit-sementes-de-esperanca-pt",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "test": "node --test tests/*.test.js"
+  }
+}

@@ -275,3 +275,14 @@ p{margin:0}
   .garantia-selo{justify-self:center}
   .garantia ul{justify-items:start;text-align:left;max-width:420px;margin-inline:auto}
 }
+
+/* Depoimentos */
+.deps{columns:3 300px;column-gap:22px;max-width:1080px;margin:0 auto}
+.dep{break-inside:avoid;margin:0 0 22px;background:var(--hoja);border:1px solid var(--oro-claro);border-radius:22px;padding:26px 26px 22px;box-shadow:0 14px 28px -24px rgba(46,58,29,.55)}
+.dep blockquote{margin:0}
+.dep blockquote p{font-family:var(--serif);font-style:italic;font-size:17.5px;line-height:1.6;color:var(--texto)}
+.dep figcaption{display:flex;align-items:center;gap:12px;margin-top:18px;padding-top:16px;border-top:1px solid var(--linea)}
+.dep figcaption img,.dep-ini{width:52px;height:52px;border-radius:50%;flex:none;object-fit:cover;box-shadow:0 0 0 3px var(--hoja),0 0 0 4px var(--oro-claro)}
+.dep-ini{display:grid;place-items:center;background:var(--salvia);color:var(--hoja);font:600 17px var(--sans);letter-spacing:.04em}
+.dep b{display:block;font-family:var(--serif);font-weight:600;font-size:16.5px;color:var(--tinta);line-height:1.2}
+.dep small{font-size:13.5px;color:var(--texto-2)}

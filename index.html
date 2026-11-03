@@ -38,7 +38,7 @@
 
 <header class="wrap cab">
   <a class="marca" href="#inicio"><svg aria-hidden="true"><use href="#i-brote"/></svg>Kit Sementes de Esperança</a>
-  <a class="cab-cta" href="#recebes">Comprar · 16,90 €</a>
+  <a class="cab-cta" href="#recebes">Comprar</a>
 </header>
 
 <main id="inicio">
@@ -66,8 +66,8 @@
       <p class="sr" aria-live="polite" id="fichaEstado">Cartão do girassol aberto: Levanta o olhar. Salmos 121:1-2.</p>
 
       <div class="hero-cta">
-        <a class="btn" href="#recebes">Quero o meu kit por 16,90 € <svg aria-hidden="true"><use href="#i-flecha"/></svg></a>
-        <p class="cta-info"><span>16,90 € · pagamento único · IVA incluído</span><span><svg aria-hidden="true"><use href="#i-escudo"/></svg>Garantia de 15 dias · Acesso imediato por e-mail</span></p>
+        <a class="btn" href="#recebes">Quero o meu kit <svg aria-hidden="true"><use href="#i-flecha"/></svg></a>
+        <p class="cta-info"><span>Pagamento único · Acesso imediato</span><span><svg aria-hidden="true"><use href="#i-escudo"/></svg>Garantia de 15 dias</span></p>
         <ul class="pagamentos" aria-label="Formas de pagamento"><li><img src="assets/img/pagamento/mbway.svg" alt="MB WAY" width="38" height="24"></li><li><img src="assets/img/pagamento/visa.svg" alt="Visa" width="38" height="24"></li><li><img src="assets/img/pagamento/master.svg" alt="Mastercard" width="38" height="24"></li><li><img src="assets/img/pagamento/applepay.svg" alt="Apple Pay" width="38" height="24"></li><li><img src="assets/img/pagamento/googlepay.svg" alt="Google Pay" width="38" height="24"></li></ul>
       </div>
     </div>
@@ -423,10 +423,6 @@
   </div>
 </footer>
 
-<div class="barra-compra" id="barra" aria-hidden="true">
-  <div><b>16,90 €</b><small>Kit completo + 2 ofertas · IVA incluído</small></div>
-  <a class="btn" href="#plan" tabindex="-1">Comprar <svg aria-hidden="true"><use href="#i-flecha"/></svg></a>
-</div>
 
 <script type="module">
 import { trackNav, linkCheckout } from './assets/meta.js';
@@ -448,16 +444,6 @@ else {
   const io = new IntersectionObserver((e) => { if (e[0].isIntersecting) { setTimeout(() => poner(true), 700); io.disconnect(); } }, { threshold: .55 });
   io.observe(ficha);
 }
-
-// Barra de compra fixa: aparece depois do primeiro botão e esconde-se na secção do plano e no rodapé.
-const barra = document.getElementById('barra');
-const heroBtn = document.querySelector('.hero-cta .btn'), plan = document.getElementById('plan'), pie = document.querySelector('.pie');
-let pasoHero = false;
-const vistos = new Set();
-const sync = () => { const ver = pasoHero && vistos.size === 0; barra.classList.toggle('ver', ver); barra.setAttribute('aria-hidden', String(!ver)); barra.querySelector('a').tabIndex = ver ? 0 : -1; };
-new IntersectionObserver((e) => { pasoHero = !e[0].isIntersecting && e[0].boundingClientRect.top < 0; sync(); }).observe(heroBtn);
-const obs = new IntersectionObserver((es) => { es.forEach((x) => (x.isIntersecting ? vistos.add(x.target) : vistos.delete(x.target))); sync(); });
-obs.observe(plan); obs.observe(pie);
 
 // Prévias ampliadas
 const dlg = document.getElementById('ampliar');

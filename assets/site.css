@@ -294,3 +294,55 @@ p{margin:0}
 .sec-tinta .pagamentos,.plan .pagamentos{margin-bottom:4px}
 .plan ul.pagamentos,.garantia ul.pagamentos{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin:10px 0 4px;max-width:none}
 .plan .pagamentos li,.garantia .pagamentos li{display:block}
+
+/* Primeira dobra: informação sob o botão */
+.cta-info{display:grid;gap:4px;justify-items:center;margin-top:2px;font-size:15px;line-height:1.45;color:var(--texto-2);text-align:center}
+.cta-info span{display:inline-flex;align-items:center;gap:6px}
+.cta-info svg{width:16px;height:16px;color:var(--oliva);flex:none}
+.cta-info span:first-child{font-weight:600;color:var(--tinta)}
+
+/* O que recebes + prévias */
+.recebes-sec{padding-top:clamp(40px,6vw,64px)}
+.recebes{list-style:none;margin:0 auto;padding:0;max-width:720px;display:grid;gap:12px}
+.recebes li{display:flex;align-items:center;gap:14px;background:var(--hoja);border:1px solid var(--oro-claro);border-radius:16px;padding:14px 18px;font-size:17px;line-height:1.45;color:var(--tinta)}
+.recebes-ic{font-size:24px;line-height:1;flex:none;width:32px;text-align:center}
+.previas-t{text-align:center;font-size:clamp(22px,3vw,28px);margin-top:clamp(40px,6vw,56px)}
+.previas-sub{text-align:center;color:var(--texto-2);margin-top:6px}
+.previas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,3vw,28px);max-width:820px;margin:22px auto 0}
+.previa{all:unset;cursor:zoom-in;display:grid;gap:10px;justify-items:center;text-align:center}
+.previa img{width:100%;height:auto;border-radius:6px;background:#fff;box-shadow:0 18px 30px -18px rgba(46,58,29,.6),0 0 0 1px var(--linea);transition:transform .35s var(--ease)}
+.previa:hover img,.previa:focus-visible img{transform:translateY(-4px)}
+.previa:focus-visible{outline:2.5px solid var(--oliva);outline-offset:4px;border-radius:8px}
+.previa span{font-size:14.5px;font-weight:500;color:var(--texto-2);line-height:1.35}
+@media (max-width:560px){.previas{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.previa span{font-size:12.5px}}
+.ampliar{border:0;padding:16px;border-radius:16px;background:var(--hoja);max-width:min(92vw,620px);max-height:92vh;box-shadow:0 30px 60px -20px rgba(0,0,0,.5)}
+.ampliar::backdrop{background:rgba(30,36,18,.72)}
+.ampliar img{display:block;width:100%;height:auto;max-height:78vh;object-fit:contain;border-radius:4px}
+.ampliar p{text-align:center;margin-top:10px;color:var(--texto-2);font-size:15px}
+.ampliar form{position:absolute;top:8px;right:8px}
+.ampliar-x{width:40px;height:40px;border-radius:50%;border:0;background:var(--tinta);color:var(--hoja);font-size:18px;cursor:pointer}
+
+/* Valor no bloco do preço */
+.plan ul.valor{list-style:none;margin:18px 0 18px;padding:0;display:grid;gap:0;border:1px solid var(--linea);border-radius:14px;overflow:hidden}
+.plan .valor li{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 14px;border-top:1px solid var(--linea);font-size:15.5px;line-height:1.4}
+.plan .valor li:first-child{border-top:0}
+.plan .valor small{color:var(--texto-2);font-size:13.5px}
+.plan .valor b{color:var(--oliva);font-weight:600;white-space:nowrap;font-size:14.5px}
+.plan .de{color:var(--texto-2);font-size:16px;margin-top:4px}
+.plan .de s{text-decoration-color:#B5452F;text-decoration-thickness:2px}
+.plan .precio{margin-top:0}
+
+/* Ajustes telemóvel: preço e garantia visíveis na primeira dobra; sem transbordo */
+@media (max-width:820px){.plan{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:640px){
+  .hero{padding-bottom:56px}
+  .hero .hoja{padding-top:22px;padding-bottom:30px}
+  .hero .brote{display:none}
+  .hero h1{font-size:29px}
+  .hero .sub{font-size:16px;line-height:1.5;margin-top:10px}
+  .ficha{--w:66vw;margin-top:22px}
+  .hero-cta{margin-top:34px;gap:8px}
+  .cab{padding-block:12px}
+}
+.cta-info span:last-child{display:block;text-wrap:balance;max-width:30ch}
+.cta-info span:last-child svg{display:inline-block;vertical-align:-3px;margin-right:4px}

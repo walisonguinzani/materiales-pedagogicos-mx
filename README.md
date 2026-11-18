@@ -1,3 +1,8 @@
+# maria.materialespedagogicos.cards
+
+- **`/`** — página institucional neutra (nome fantasia Kelly, dados da empresa 57.724.291 ALISSON KAROLESKI, contactos), com `termos.html` e `privacidade.html` genéricos. É o site usado na verificação das BMs: manter `/termos.html` sempre neste endereço.
+- **`/kit/`** — landing page do Kit Sementes de Esperança (abaixo), com os seus próprios `kit/termos.html` e `kit/privacidade.html`. Os anúncios devem apontar para `https://maria.materialespedagogicos.cards/kit/`.
+
 # Kit Sementes de Esperança · Landing page (Portugal)
 
 Landing page em português de Portugal do **Kit Sementes de Esperança** (cartões interativos de evangelização para imprimir), com venda pela **Hotmart**. Preço: **16,90 €**, pagamento único.
@@ -7,8 +12,9 @@ A versão anterior para o México (espanhol, checkout SPEI via Zenith) está gua
 ## Estrutura
 | Ficheiro | O que é |
 |---|---|
-| `index.html` | Landing page |
-| `termos.html` · `privacidade.html` | Termos de Utilização · Política de Privacidade (Hotmart como vendedora, isenção da Meta, dados da empresa) |
+| `kit/index.html` | Landing page do kit |
+| `kit/termos.html` · `kit/privacidade.html` | Termos e Privacidade do kit (Hotmart, garantia, isenção da Meta) |
+| `index.html` · `termos.html` · `privacidade.html` | Página institucional neutra e os seus textos legais (`assets/empresa.css`) |
 | `assets/site.css` · `assets/fonts.css` | Estilos e fontes (Lora e Poppins, OFL, alojadas no site) |
 | `assets/meta.js` | Píxel da Meta (opcional) e passagem dos UTMs para o checkout |
 | `assets/img/` | Ilustrações e capas em português |

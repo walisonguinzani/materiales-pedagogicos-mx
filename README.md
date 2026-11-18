@@ -1,6 +1,6 @@
 # maria.materialespedagogicos.cards
 
-- **`/`** — página institucional neutra (nome fantasia Kelly, dados da empresa 57.724.291 ALISSON KAROLESKI, contactos), com `termos.html` e `privacidade.html` genéricos. É o site usado na verificação das BMs: manter `/termos.html` sempre neste endereço.
+- **`/`** — página da Papelaria Criativa (foto da Kelly, exemplos de materiais sem checkout; dados da empresa 57.724.291 ALISSON KAROLESKI, nome fantasia Kelly, só no rodapé e nos termos), com `termos.html` e `privacidade.html` genéricos (`assets/papelaria.css`). É o site usado na verificação das BMs: manter `/termos.html` sempre neste endereço.
 - **`/kit/`** — landing page do Kit Sementes de Esperança (abaixo), com os seus próprios `kit/termos.html` e `kit/privacidade.html`. Os anúncios devem apontar para `https://maria.materialespedagogicos.cards/kit/`.
 
 # Kit Sementes de Esperança · Landing page (Portugal)
@@ -14,7 +14,7 @@ A versão anterior para o México (espanhol, checkout SPEI via Zenith) está gua
 |---|---|
 | `kit/index.html` | Landing page do kit |
 | `kit/termos.html` · `kit/privacidade.html` | Termos e Privacidade do kit (Hotmart, garantia, isenção da Meta) |
-| `index.html` · `termos.html` · `privacidade.html` | Página institucional neutra e os seus textos legais (`assets/empresa.css`) |
+| `index.html` · `termos.html` · `privacidade.html` | Página da Papelaria Criativa e os seus textos legais (`assets/papelaria.css`) |
 | `assets/site.css` · `assets/fonts.css` | Estilos e fontes (Lora e Poppins, OFL, alojadas no site) |
 | `assets/meta.js` | Píxel da Meta (opcional) e passagem dos UTMs para o checkout |
 | `assets/img/` | Ilustrações e capas em português |
